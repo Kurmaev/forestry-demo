@@ -3,7 +3,7 @@
 1. All templates written using [Liquid](https://shopify.github.io/liquid/ "Liquid") . You can get some info about it at [https://shopify.github.io/liquid/](https://shopify.github.io/liquid/ "https://shopify.github.io/liquid/") and [https://github.com/Shopify/liquid/wiki/Liquid-for-Designers](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers "https://github.com/Shopify/liquid/wiki/Liquid-for-Designers")
 2. Page size is fixed and should have height: **1047px** and width: **716px**. If your page can be bigger - you need to split it manually via JS/css.
 3. Template should have  `window.status = 'done';`  statement at the end of JS execution. Otherwise your pdf will render 5+ sec
-4. You should not remove `<style>{{ css }}</style>` line. This dropin is used to inserting your css from template into html.
+4. You should not remove {% raw %}`<style>{{ css }}</style>`{% endraw %} line. This dropin is used to inserting your css from template into html.
 5. You can save even invalid liquid template; but system won't let you enable it until you will fix it.
 
 If you wanna use external resources like images or fonts - you should use Data URI format ([https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs "https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs"))
