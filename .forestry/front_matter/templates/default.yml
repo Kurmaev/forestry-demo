@@ -24,3 +24,5 @@ fields:
   label: layout
   hidden: true
   default: post
+pages:
+- liquid-templates.md
