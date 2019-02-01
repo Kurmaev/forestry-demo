@@ -1,184 +1,305 @@
+<h1 id="templating-guidlines">Templating guidlines</h1>
 
+<ol>
+  <li>All templates written using <a href="https://shopify.github.io/liquid/" title="Liquid">Liquid</a> . You can get some info about it at <a href="https://shopify.github.io/liquid/" title="https://shopify.github.io/liquid/">https://shopify.github.io/liquid/</a> and <a href="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers" title="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers">https://github.com/Shopify/liquid/wiki/Liquid-for-Designers</a></li>
+  <li>Page size is fixed and should have height: 1047px and width: 716px. If your page can be bigger - you need to split it manually via JS/css.</li>
+  <li>Template should have  ```window.status = ‘done’;```  statement at the end of JS execution. Otherwise your pdf will render 5+ sec</li>
+  <li>You should not remove ```<style></style>``` line - this dropin is used to inserting your css from template into html.</li>
+  <li>You can save even invalid liquid template; but system won’t let you enable it until you will fix it.</li>
+</ol>
 
-<!doctype html>
-<html class="no-js" lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>liquid-templates - Belkirk College of Engineering</title>
-  <meta name="description" content="Guidlines about various templates">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" href="/img/favicon.png"/>
-  <link rel="stylesheet" href="https://yui-s.yahooapis.com/pure/0.6.0/pure-min.css">
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="https://yui-s.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
-  <!--<![endif]-->
-  <link rel="stylesheet" href="/css/main.min.css">
-</head>
-<body>
+<p>If you wanna use external resources like images or fonts - you should use Data URI format (<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs" title="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs">https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs</a>)</p>
 
+<h1 id="folio-template">Folio Template</h1>
 
+<h3 id="available-variables">Available variables</h3>
 
+<p><strong>hotel</strong> - <em>HotelDrop</em></p>
 
+<p><strong>guests</strong> - array of <em>GuestDrop</em></p>
 
-<header class="site-header">
-  <div class="container">
-      <h1 class="logo">
-        <a href="/"></a>
-      </h1>
-      <nav class="main-nav">
-        <ul class="navigation">
-          
-          <li class="">
-            
-            <a href="/">
-                  Home
-                  
-                </a>
-          </li>
-          
-          <li class="">
-            
-            <a href="/about/">
-                  About
-                  
-                </a>
-          </li>
-          
-          <li class="">
-            
-            <a href="/contact/">
-                  Contact
-                  
-                </a>
-          </li>
-          
-        </ul>
-    </nav>
-  </div>
-</header>
+<p><strong>today</strong> - current date</p>
 
+<h1 id="guest-registration-form-template">Guest Registration form Template</h1>
 
+<h3 id="available-variables-1">Available variables</h3>
 
-	<header class="plain-header">
-		<div class="container pure-g">
-			<div class="pure-u-1 pure-u-md-1">
-				<div class="content content-narrow">
-				
-					<h2>liquid-templates</h2>
-					
-				</div>
-			</div>
-		</div>
-	</header>
+<p><strong>folio</strong> - <em>FolioDrop</em></p>
 
+<p><strong>hotel</strong> - <em>HotelDrop</em></p>
 
+<p><strong>customer</strong> - <em>CustomerDrop</em></p>
 
+<p><strong>booking</strong> - <em>BookingDrop</em></p>
 
+<h1 id="drop-reference">Drop reference</h1>
 
+<h3 id="hoteldrop">HotelDrop:</h3>
 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name
 
+company_name
 
+company_address
 
-<nav class="breadcrumbs">
-	<div class="container">
-		<div class="pure-u-1">
-        <div class="content content-narrow">
-					
-						<ul>
-							<li><a href="/">Home</a>&nbsp;<i class="fa fa-chevron-right"></i></li>
-							
-								
-									<li class="active">liquid-templates</li>
-								
-							
-						</ul>
-        </div>
-    </div>
-	</div>
-</nav>
+company_city
 
+company_country
 
-<div class="container pure-g">
-  <div class="pure-u-1">
-    <div class="content content-narrow">
-      <div class="meta">
-        
-        <div class="post-date">01 Feb 2019</div>
-        
-        
-      </div>
+company_zip_code
 
-      
+email
 
+phone
 
-      
-    </div>
-  </div>
-</div>
+show_tax_info
 
+vat - is vat enabled
 
-<footer class="site-footer">
-	<div class="container pure-g">
-        <div class="footer-col pure-u-1 pure-u-md-1-4">
-            <img src="/img/logo-white.png" alt="" class="footer-logo">
-        </div>
-        <div class="footer-col pure-u-1 pure-u-md-1-4">
-            <h3>About Belkirk</h3>
-            <ul>
-            
-                <li><a href="/about/">About</a></li>
-            
-            </ul>
-        </div>
-        <div class="footer-col pure-u-1 pure-u-md-1-4">
-            <h3>Projects</h3>
-            <ul>
-            
-                <li><a href="/projects/epilepsy-monitoring/">Portable EEG Montoring Device</a></li>
-            
-                <li><a href="/projects/modern-engineering/">Modern Engineering Textbook</a></li>
-            
-                <li><a href="/projects/electric-vehicle-design/">Electric Vehicle </a></li>
-            
-            
-                <li><a href="/projects/">See all projects</a></li>
-            
-            </ul>
-        </div>
-        <div class="footer-col pure-u-1 pure-u-md-1-4">
-            <h3>Contact</h3>
-            
+vat_number
 
+vat_tax_name
 
+currency_symbol
 
-<p>
-  Belkirk College of Engineering<br />
-  <br />
-  The Booking Factory, Techhub,<br />
-  101 Finsbury Pavement Street<br />
-  
-  London, , United Kingdom<br />
-  
-  <br />
-  <a href="tel:+44(0)7749 617 212" title="+44(0)7749 617 212">+44(0)7749 617 212</a><br />
-  <a href="mailto:hello@thebookingfactory.com" title="hello@thebookingfactory.com">hello@thebookingfactory.com</a>
-</p>
+invoice_default_notes
 
-        </div>
-	</div>
-	<div class="copyright">
-        <p>
-            &copy;2019 Belkirk College of Engineering - All Rights Reserved<br>
-			<a href="/admin">Site Admin</a>
-		</p>
-	</div>
-</footer>
-<!-- Javascript -->
-<script src="/js/main.js" type="text/javascript"></script>
-</body>
-</html>
+logo_url
 
+invoice_text
+
+guest_form_policy
+
+invoice_logo - logo in base64
+
+custom_question_first
+
+custom_question_second
+</code></pre></div></div>
+
+<h3 id="guestdrop">GuestDrop:</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>title
+
+email
+
+phone
+
+company_name
+
+fax_number
+
+address
+
+first_name
+
+last_name
+
+country
+
+city
+
+state
+
+nationality
+
+identification - identification number
+
+identification_type - identification type name
+
+zip_code
+
+type_of_tourism - For Iceland countries only
+
+addons - container that hold guest's custom fields
+</code></pre></div></div>
+
+<h3 id="customerdrop">CustomerDrop</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>title
+
+email
+
+mobile_phone
+
+company_name
+
+fax_number
+
+address
+
+first_name
+
+last_name
+
+country
+
+city
+
+state
+
+nationality
+
+identification - identification number
+
+identification_type - identification type name
+
+visible_name
+
+is_company - true if customer is company
+
+is_personal - true if customer is personal
+
+client_name
+
+first_name
+
+last_name
+
+reference_text
+
+bill_to
+
+tax_number
+</code></pre></div></div>
+
+<h3 id="bookingdrop">BookingDrop</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reference
+
+rooms - array of _BookingRoomDrop_
+
+checkin_date
+
+checkout_date
+
+source
+
+status
+
+info
+</code></pre></div></div>
+
+<h3 id="bookingroomdrop">BookingRoomDrop</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>number - room number
+
+number_of_nights
+
+number_of_adults
+
+number_of_children
+
+checkin_date
+
+checkout_date
+
+note
+
+status - (pending, hold, canceled)
+
+occupation_status - (pending, checked-in, checked-out)
+</code></pre></div></div>
+
+<h3 id="foliodrop">FolioDrop:</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>status - folio, invoice, receipt, voided
+
+status_visible - Folio, Invoice, Receipt, Voided Invoice
+
+visible_number
+
+folio_rooms: array of _FolioRoomDrop_
+
+folio_extras: array of _FolioExtraDrop_
+
+fees_and_city_taxes: array of _TaxDrop_, exclusive fee/city taxes
+
+inclusive_fees_and_taxes: array of _TaxDrop_, inclusive taxes
+
+note_override
+
+note
+
+verbose_total
+
+verbose_total_integer_part
+
+verbose_total_float_part
+
+tax_date
+
+date
+
+total
+
+total_discount
+
+subtotal
+
+charged
+
+due
+</code></pre></div></div>
+
+<h3 id="folioroomdrop">FolioRoomDrop:</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dates: sorted array of _{date: date, price: price}_ objects
+
+net_with_hidden
+
+taxes_with_hidden
+
+amount_with_hidden
+
+net_per_count
+
+discounts: array of _FolioRoomDiscount_
+</code></pre></div></div>
+
+<h3 id="folioroomdiscount">FolioRoomDiscount:</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>title
+
+amount
+</code></pre></div></div>
+
+<h3 id="folioextradrop">FolioExtraDrop</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>title
+
+count
+
+net
+
+net_per_count
+
+aggregated_taxes_total
+
+amount_after_discount
+</code></pre></div></div>
+
+<h3 id="taxdrop">TaxDrop</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name
+
+text_visible
+
+amounts_sum
+
+position
+
+amount
+
+taxed_amount
+
+calculation_logic - (percent, fixed, per_person_per_night, per_person_per_booking, per_room_per_night, per_room_per_booking, per_adult_per_booking, per_child_per_booking, per_adult_per_night, per_child_per_night)
+
+display_calculation_logic
+
+mode - (tax, city_tax, fee)
+
+calculation_method - (inclusive, exclusive)
+
+child_amount
+</code></pre></div></div>
